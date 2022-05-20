@@ -1,0 +1,230 @@
+Servere og Databaser 0 (Client-Server Modellen)
+Mål: Lære at kende til client-server modellen og forskellen på clients og servers, samt gøre klar til at arbejde med server og database.
+
+Dagsorden:
+
+1. Hvad er client-server modellen?
+https://en.wikipedia.org/wiki/Client%E2%80%93server_model
+
+
+https://www.youtube.com/watch?v=-dSXvLAwXO0
+
+2. Download dette fullstack worked example:
+https://github.com/siinch/fullstackdemo/archive/refs/heads/master.zip
+
+3. Installér:
+MongoDB: https://docs.mongodb.com/manual/installation/
+https://www.mongodb.com/try/download/community
+(Installer MongoDB som en service. Husk også at installere MongoDBCompass sammen med)
+NodeJS: https://nodejs.dev/learn/how-to-install-nodejs
+https://nodejs.dev/download/
+
+4. Tid til at skrive logbog / arbejde på portfolie
+
+Servere og Databaser 1 (3-Lags Arkitektur)
+Mål: Kende til 3-lags arkitektur og forstå forholdende mellem præsentations-lag, logik-lag og data-lag, samt gøre klar til at arbejde med server og database.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Client-Server Kahoot
+
+2. Hvad er 3-tier architecture?
+https://en.wikipedia.org/wiki/Multitier_architecture
+
+https://www.youtube.com/watch?v=r8JuAz9_V18
+
+3. Download dette fullstack worked example (hvis du ikke gjorde det i sidste time):
+https://github.com/siinch/fullstackdemo/archive/refs/heads/master.zip
+
+4. Installér (hvis du ikke gjorde det i sidste time):
+MongoDB: https://docs.mongodb.com/manual/installation/
+https://www.mongodb.com/try/download/community
+(Installer MongoDB som en service. Husk også at installere MongoDBCompass sammen med)
+NodeJS: https://nodejs.dev/learn/how-to-install-nodejs
+https://nodejs.dev/download/
+
+5. Tid til at skrive logbog / arbejde på portfolie
+
+Servere og Databaser 2 (Terminalen)
+Mål: Lære at starte en server på din egen computer vha. terminalen og åbne MongoDBCompass.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Kahoot om 3-lagsarkitektur
+
+2. Start node.js serveren:
+
+Sådan starter du en NodeJS server og en MongoDB database:
+
+
+
+https://www.youtube.com/watch?v=ONrY_9R4DFE
+
+ 
+
+
+    - åben terminalen
+       windows: tryk på start-knappen, skriv cmd og tryk på enter
+       mac: tryk på command+space, skriv terminal og tryk enter
+    - naviger hen til fullstackdemo-mappen
+       i terminalen, skriv: cd mappe_navn
+       f.eks. cd gitrepos/fullstackdemo
+       for at gå baglæns skriv: cd ..
+       for at få muligheder skriv:  DIR (på Windows) eller ls (på Mac)
+       for at skrifte drev skriv: drev_navn:
+       f. eks: C:  eller  D:
+     - installer de nødvendige dependencies
+       i fullstackdemo-mappen skriv: npm install
+     - kør server-js filen
+      i fullstackdemo-mappen skriv: node server.js
+      Hvis alt er gjort korrekt skulle der gerne stå: Listening on port 3001
+      Luk IKKE terminal, da serveren ellers også vil lukke
+
+3. Start databasen
+   - windows: tryk start, skriv services og åben prrogrammet, find mongodb og aktiver
+   - Mac: åben terminalen og skriv mongod
+
+4. Åben appen MongoDBCompass og undersøg databasen
+   - åben appen og tryk connect
+   - klik på mydb
+   - klik på knapperne i browseren og se forandringerne i MongoDBCompass
+
+5. Besøg serveren via browseren
+  - åben browseren og skriv følgende i addressefeltet: localhost:3001
+  - Der skulle gerne dukke en side op med nogle knapper, tryk på nogle af dem
+    f.eks. tryk på insert og derefter find.
+  - Observer hvordan serveren og databasen reagerer
+
+6. Tid til at skrive logbog / arbejde på portfolie
+
+Servere og Databaser 3 (HTTP)
+Mål: Lære at kende til Hypertext Transfer Protokollen (HTTP) og hvordan den optræder i vores worked example. Derudover lære at kende forskellen på HTTP og HTTPS.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Kahoot om kommandoer i terminalen
+
+2. HTTP
+https://developer.mozilla.org/en-US/docs/Web/HTTP
+
+
+https://www.youtube.com/watch?v=hExRDVZHhig
+
+
+3. Øvelse: Få vores worked example til at virke igen, tryk på nogle knapper og se effekten på serveren og i databasen.
+
+4. Evt. del jeres IP-addresser og besøg hinandens servere (skift localhost ud med IP-addressen)
+
+5. Skriv logbog / arbejd på portfolie
+
+Servere og Databaser 4 (HTTP Metoder)
+Mål: Lære at kende til de forskellige HTTP metoder og lære at sende sine egne beskeder til serveren med de forskellige HTTP metoder.
+
+Dagsorden.
+
+1. Opsamling fra sidst: Intro til worked example
+
+2. Intro til HTTP og HTTP Metoderne
+https://developer.mozilla.org/en-US/docs/Web/HTTP
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE
+
+ 
+
+
+https://www.youtube.com/watch?v=guYMSP7JVTA
+
+3. Fælles øvelse: Lav en knap for hver HTTP-metode og send beskeder til serveren.
+(Læreren viser hvordan)
+
+4. Tid til at skrive logbog / arbejde på portfolie
+
+Servere og Databaser 5 (MongoDB: Create, Insert og Drop)
+Mål: Lære at kende til de vigtigste database kommandoer, som hører under kategorien data definition. F.eks. create collection og drop collection. Og hvad er en collection egentlig? Vi skal også lære at kende til insert kommandoen og hvad er et document..
+
+Dagsorden.
+
+1. Opsamling fra sidst: Kahoot om HTTP-metoderne.
+
+2. Intro til create collection og drop collection:
+https://docs.mongodb.com/compass/current/collections/
+https://www.w3schools.com/nodejs/nodejs_mongodb_createcollection.asp
+https://www.w3schools.com/nodejs/nodejs_mongodb_drop.asp
+https://docs.mongodb.com/compass/current/documents/insert/
+https://www.w3schools.com/nodejs/nodejs_mongodb_insert.asp
+https://docs.mongodb.com/manual/core/document/
+
+3. Fælles øvelse: Udvid funktionaliteten af nogle af knapperne fra sidst, eller lav nye knapper, som kan få serveren til indsætte data i databasen og slette collections.
+
+4. Tid til at skrive logbog / arbejde på portfolie
+
+Servere og Databaser 6 (MongoDB: Find, Update og Delete)
+Mål: Lære at kende til de resterende kommandoer, find, update og delete.
+
+Dagsorden.
+
+1. Opsamling fra sidst: collections, documents, create, drop og insert
+
+2. Intro til find-kommandoen
+https://docs.mongodb.com/compass/current/query/filter/
+https://www.w3schools.com/nodejs/nodejs_mongodb_find.asp
+https://docs.mongodb.com/compass/current/documents/modify/
+https://www.w3schools.com/nodejs/nodejs_mongodb_update.asp
+https://docs.mongodb.com/compass/current/documents/delete/
+https://www.w3schools.com/nodejs/nodejs_mongodb_delete.asp
+
+3. Fælles øvelse: Udvid funktionaliteten af nogle af knapperne fra sidst, eller lav nye knapper, som kan få serveren til finde, opdatere og slette data i databasen.
+
+4. Tid til at skrive logbog / arbejde på portfolie
+
+Servere og Databaser 7 (Entity Relationship Diagram)
+Mål: Lære at bruge Entity Relationship Diagrammer til at organisere databaser.
+
+Dagsorden:
+
+1. Opsamling fra sidst: HTTP Metoder
+
+2. Hvad er et Entity Relationship Diagrams(ERDs)?:
+
+https://www.lucidchart.com/pages/er-diagrams
+
+
+
+https://www.youtube.com/watch?v=QpdhBUYk7Kk
+
+https://www.youtube.com/watch?v=-CuY5ADwn24
+
+3. Prøv selv at lave et ERD over databasen hvor:
+  1. En user består af: (userid, username, passwordhash)
+  2. En highscore består af (highscoreid, userid, score)
+  3. En user kan have 0 eller flere highscores
+  4. En highscore skal have en user og kun en user
+
+4. Skriv logbog / arbejd på portfolie.
+
+Servere og Databaser 8 (Projektoplæg)
+Dagsorden:
+
+1. Opsamling fra sidst: Kahoot om ERDs
+
+2. Projektoplæg:
+
+I skal implementere jeres egen 3-lagsarkitektur som den i vores worked example eller udvide/modificere den.
+
+Altså, der skal være:
+a. et præsentationslag med knapper, som og popups, som dem i eksemplet
+b. en server, som tager imod forespørgslerne fra præsentationslaget, og som
+c. omsætter forespørgslerne til database kommandoer (hvilket jo også kræver en database til at modtage disse)
+d. derudover skal i lave et ERD, som beskriver strukturen i jeres database
+
+Forslag til hvis i ikke selv kan finde på noget:
+I kunne f.eks. tage udgangspunkt i eksemplerne fra ERD-videoerne fra sidste time, med costumers, orders og products
+I kunne også lege videre med idéen om et spil med users og highscores. Man kunne f.eks. udvide det med en friends list, upgrades og hvilke levels brugeren har gennemført.
+
+3. Find sammen i grupper og vælg en case i gerne vil arbejde med.
+
+4. Planlæg hvornår i skal være færdige med de forskellige dele. Der er præsentationer i slutningen af april.
+
+God arbejdslyst. :)

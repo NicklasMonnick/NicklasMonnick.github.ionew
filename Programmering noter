@@ -1,0 +1,622 @@
+Programmering 0 (Github Pages)
+1. Lav en profil på github:
+https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home
+
+2. Lav et repository som hedder dit_bruger_navn.github.io
+
+3. Upload din logbog til dit repository
+
+4. Gå til dit_bruger_navn.github.io og se at din side er online
+Eksempel: siinch.github.io
+
+5. Skriv brugernavn til Simon i chatten
+
+Programmering 1 (Hello world!)
+Mål: Man skal have lært at udskrive noget tekst med console.log og se det i konsollen.
+
+Dagsorden:
+
+1. Hvad er console.log? https://www.w3schools.com/jsref/met_console_log.asp
+
+2. Download dette worked example:
+https://github.com/siinch/flappybird-clone/archive/refs/heads/main.zip
+
+3. Introduktion til worked example.
+
+4. Udskriv noget text og nogle værdier og se dem i console
+
+5. Skriv i logbogen
+
+ 
+
+Ekstra videoer:
+
+Intro:
+
+ https://youtu.be/PlbupGCBV6w
+
+Hello word:
+
+ https://youtu.be/POPLF-Qc0OU
+
+Visual Studio Code og NodeJS
+
+ https://youtu.be/BxZKLKfjaRg
+
+ https://youtu.be/4MsfBokJiSs
+
+ 
+
+En anden playliste jeg kan anbefale:
+
+https://www.youtube.com/watch?v=J9zdV4bAiU0&list=PLYxzS__5yYQnOnaMW7_OsJDB2ZtR71A_r&index=1
+
+Programmering 2 (Variable & Datatyper)
+Mål: Lære at lave og ændre variable med forskellige datatyper som tekst, tal og true/false.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Åben en teksteditor, lav en html-fil og få udskrevet hello world i console
+
+2. Hvad er en variabel? https://www.w3schools.com/js/js_variables.asp
+
+3. Hvad er datatyper? https://www.w3schools.com/js/js_datatypes.asp
+
+4. Lav nogle variable til jeres egen feature i flappybird, f.eks. pengesedler der er mere værd end mønter.
+(Lav variable til billede, lyd, x-position, y-position og x-hastighed)
+
+5. Skriv om variable og datatyper samt jeres eksperimenter i logbogen
+
+ 
+
+Ekstra videoer:
+
+ https://youtu.be/TOkU5HxES1o
+
+ https://youtu.be/Wsy7nhFnfbM
+
+Datatypes 1/2:
+
+ https://youtu.be/nCwQY8inRvU
+
+Datatypes 2/2:
+
+ https://youtu.be/4GXpB9EMLWM
+
+ https://youtu.be/wFiVtqe1osM
+
+Programmering 3 (Operatorer)
+Mål: Lære de forskellige typer operatorer at kende.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Husk hvordan man laver en variabel med de forskellige datatyper.
+
+2. Hvad er der for nogle operatorer:
+https://www.w3schools.com/js/js_assignment.asp
+https://www.w3schools.com/js/js_arithmetic.asp
+https://www.w3schools.com/js/js_comparisons.asp
+
+3. Brug operatorer til at ændre jeres variable.
+(Få x-positionen i lavede sidst til at blive en smule mindre efter hvert update.)
+
+4. Skriv om operatorer i logbogen
+
+ 
+
+Ekstra Videoer:
+
+  https://youtu.be/otYwi_wW9Hk
+
+ https://youtu.be/gG0ynX_Sfx4
+
+ https://youtu.be/uuRJ1aCj8Ro
+
+ https://youtu.be/VBCOx4CqBz0
+
+Programmering 4 (If-Statements)
+Mål: Lære at implementere betinget udførsel med if-statements.
+
+Dagsorden.
+
+1. Opsamling fra sidst: Husk de forskellige operatorer, især comparison operators og logical operators.
+
+2. Hvad er et if-statement? https://www.w3schools.com/js/js_if_else.asp
+
+3. Brug et if-statement til få noget til at ske under bestemte betingelser.
+(Hvis x-positionen bliver for lav, så sæt den tilbage til start x-positionen og giv y-position en ny tilfældig værdi)
+
+4. Skriv om if-statements i logbogen.
+
+ 
+
+Ekstra Videoer:
+
+ https://youtu.be/o_iO9WuoWaM
+
+  https://youtu.be/SJPsOFfvEQA
+
+// diamond variables i setup.js
+const diamondSound = coinSound ;
+const diamondImage = new Image ( 60 , 60 );
+      diamondImage . src = "../assets/images/diamond.png" ;
+const diamondHitboxRadius = 30 ;
+const diamondXSpeed = - 10 ;
+const diamondSpawnInterval = 1000 ;
+const diamondValue = 5 ;
+let diamondXPosition = spawnXPosition ;
+let diamondYPosition = randomBetween ( 0 , canvas . height );
+let diamondTimeSinceLastSpawn = diamondSpawnInterval
+let diamonds = [];
+ 
+
+diamond-logik i update.js
+// move diamond left
+    diamondXPosition += diamondXSpeed ;
+ 
+    // keep diamond to the right in menu
+    if(gameState == "menu") {
+        diamondXPosition = spawnXPosition;
+    }
+ 
+    // respawn diamond when it falls off screen
+    if(diamondXPosition < -100 && gameState == "action") {
+        diamondXPosition = spawnXPosition;
+        diamondYPosition = randomBetween(0, canvas.height);
+    }
+ 
+    // check if the diamond and the bird collide
+    if(theseCirclesCollide(
+        birdXPosition,
+        birdYPosition,
+        birdHitboxRadius,
+        diamondXPosition,
+        diamondYPosition,
+        diamondHitboxRadius
+    ) && gameState == "action")
+    { // if they do, increase the score and respawn diamond
+        diamondSound.play();
+        scoreValue += diamondValue;
+        diamondXPosition = spawnXPosition;
+        diamondYPosition = randomBetween(0, canvas.height);
+    }
+ 
+    // draw the diamond
+    drawImage(
+        diamondImage,
+        diamondXPosition,
+        diamondYPosition,
+        diamondImage.width,
+        diamondImage.height
+    );
+
+Programmering 5 (Funktioner)
+Mål: Lære at definere og bruge sine egne funktioner.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Husk hvordan man bruger if-statements.
+
+2. Hvad er funktioner? : https://www.w3schools.com/js/js_functions.asp
+
+3. Brug funktioner til udføre opgaver der er ens.
+(Tegn billedet på x- og y-positionen, med den funktionen drawImage)
+
+4. Skriv om funktioner i logbogen
+
+ 
+
+Ekstra Videoer:
+
+ https://youtu.be/jwOW-qlJtxg
+
+ https://www.youtube.com/watch?v=pCU7vicLCgA
+
+ https://www.youtube.com/watch?v=37ly8tCGFWA
+
+ https://www.youtube.com/watch?v=nnAU1dLY7gY
+
+ https://www.youtube.com/watch?v=tJOJPealurs
+
+SO INFO
+I SO forløbet skal I lave en hjemmeside, f.eks. kan I bruge wordpress til at gøre det nemmere uden html, css og javascript. I får en wordpress-side til hver gruppe. Indtil da kan i øve jer på jeres egen personlige wordpress-side. I kan også bruge jeres personlige wordpress-side som logbog.
+
+Her er nogle guides til hvordan man bruger wordpress og jeres elevserver generelt:
+https://pfj.slotshaven.it/3-webteknologier/3-wordpress/
+
+https://informatik.slotshaven.it/wordpress/wordpress-installation/
+
+https://informatik.slotshaven.it/wordpress/upload-af-filer-til-en-webserver/
+
+https://informatik.slotshaven.it/wordpress/mac-tricks/
+
+I skal også lave et sitemap til jeres hjemmeside. Det er bare et simpelt diagram, som hvordan jeres undersider er forbundet og hvordan man finder dem. Læs mere om sitemaps og se eksempler her:
+https://xd.adobe.com/ideas/process/information-architecture/visual-sitemap-examples-website-designs/
+
+I kan bruge denne gratis hjemmeside til at lave jeres sitemaps:
+https://www.draw.io
+
+
+I tilgår jeres personlige wordpress-side ved at indtaste de følgende adresser efterfulgt af /wordpress i jeres browser.
+
+s21-adel.slotshaven.it
+s21-alexandern.slotshaven.it
+s21-alexanderb.slotshaven.it
+s21-amir.slotshaven.it
+s21-anastasia.slotshaven.it
+s21-anne-sofie.slotshaven.it
+s21-caroline.slotshaven.it
+s21-celina.slotshaven.it
+s21-christian.slotshaven.it
+s21-christoffer.slotshaven.it
+s21-feline.slotshaven.it
+s21-fjolla.slotshaven.it
+s21-frederik.slotshaven.it
+s21-gregers.slotshaven.it
+s21-hussain.slotshaven.it
+s21-johanne.slotshaven.it
+s21-joseph.slotshaven.it
+s21-julie.slotshaven.it
+s21-kasper.slotshaven.it
+s21-laura.slotshaven.it
+s21-lauritz.slotshaven.it
+s21-liloz.slotshaven.it
+s21-louise.slotshaven.it
+s21-mass.slotshaven.it
+s21-mikkel.slotshaven.it
+s21-nicklas.slotshaven.it
+s21-silas.slotshaven.it
+s21-sofia.slotshaven.it
+s21-sofie.slotshaven.it
+s21-ulrich.slotshaven.it
+
+Programmering 6 (Arrays)
+Mål: Lære at lave, manipulere arrays og anvende arrays i loops.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Husk i hvordan man bruger en funktion.
+
+2. Hvad er arrays? : https://www.w3schools.com/js/js_arrays.asp
+
+3. Brug arrays til at opbevare flere ens værdier.
+(Lav et array med flere små arrays i, som indeholder x- og y-positioner)
+
+4. Skriv om arrays i logbogen.
+
+ 
+
+Ekstra Videoer:
+
+ https://www.youtube.com/watch?v=TScHu-37Cqw
+
+ https://youtu.be/eADCg1R5_sk
+
+ https://youtu.be/Yv1h-QKt_KQ
+
+// til setup
+
+// diamond variables
+const diamondSound = coinSound ;
+const diamondImage = new Image ( 60 , 60 );
+      diamondImage . src = "../assets/images/diamond.png" ;
+const diamondHitboxRadius = 30 ;
+const diamondXSpeed = - 10 ;
+const diamondSpawnInterval = 1000 ;
+const diamondValue = 5 ;
+let diamondTimeSinceLastSpawn = diamondSpawnInterval
+let diamonds = [
+      {
+            xPosition : spawnXPosition ,
+            yPosition : randomBetween ( 0 , canvas . height )
+      },
+      {
+            xPosition : spawnXPosition ,
+            yPosition : randomBetween ( 0 , canvas . height )
+      },
+      {
+            xPosition : spawnXPosition ,
+            yPosition : randomBetween ( 0 , canvas . height )
+      },
+      {
+            xPosition : spawnXPosition ,
+            yPosition : randomBetween ( 0 , canvas . height )
+      }
+];
+// til update
+
+for ( let diamond of diamonds ) {
+    // move diamond left
+    diamond . xPosition += diamondXSpeed ;
+ 
+    // keep diamond to the right in menu
+    if(gameState == "menu") {
+        diamond.xPosition = spawnXPosition;
+    }
+ 
+    // respawn diamond when it falls off screen
+    if(diamond.xPosition < -100 && gameState == "action") {
+        diamond.xPosition = spawnXPosition;
+        diamond.yPosition = randomBetween(0, canvas.height);
+    }
+ 
+    // check if the diamond and the bird collide
+    if(theseCirclesCollide(
+        birdXPosition,
+        birdYPosition,
+        birdHitboxRadius,
+        diamond.xPosition,
+        diamond.yPosition,
+        diamondHitboxRadius
+    ) && gameState == "action")
+    { // if they do, increase the score and respawn diamond
+        diamondSound.play();
+        scoreValue += diamondValue;
+        diamond.xPosition = spawnXPosition;
+        diamond.yPosition = randomBetween(0, canvas.height);
+    }
+ 
+    // draw the diamond
+    drawImage(
+        diamondImage,
+        diamond.xPosition,
+        diamond.yPosition,
+        diamondImage.width,
+        diamondImage.height
+    );
+    }
+
+Programmering 7 (Loops)
+Mål: Lære at implementere gentagelser med loops.
+
+Dagsorden.
+
+1. Opsamling fra sidst: Husk hvordan man laver et array.
+
+2. Hvad er loops? https://www.w3schools.com/js/js_loop_while.as
+evt. https://www.w3schools.com/js/js_loop_for.asp
+
+3. Brug loops til at gentage det den samme logik flere gange i træk.
+(Loop igennem arrayet fra sidst og tegn billedet på alle x- og y-positionerne)
+
+4. Skriv om loops I logbogen
+
+ 
+
+Ekstra Videoer:
+
+ https://www.youtube.com/watch?v=h84MlHv6g4Q
+
+ https://www.youtube.com/watch?v=jcwTB9fBzP0
+
+ https://www.youtube.com/watch?v=EBHOo-6xn4A
+
+ https://www.youtube.com/watch?v=c69Y2GpF6-U
+
+ 
+
+    for ( let diamond of diamonds ) {
+        // move diamond left
+        diamond . xPosition += diamondXSpeed ;
+ 
+        // respawn diamond when it falls off screen
+        if(diamond.xPosition < -100 && gameState == "action") {
+            diamonds = diamonds.remove(diamond);
+        }
+ 
+        // check if the diamond and the bird collide
+        if(theseCirclesCollide(
+            birdXPosition,
+            birdYPosition,
+            birdHitboxRadius,
+            diamond.xPosition,
+            diamond.yPosition,
+            diamondHitboxRadius
+        ) && gameState == "action")
+        { // if they do, increase the score and respawn diamond
+            diamondSound.play();
+            scoreValue += diamondValue;
+            diamonds = diamonds.remove(diamond);
+        }
+ 
+        // draw the diamond
+        drawImage(
+            diamondImage,
+            diamond.xPosition,
+            diamond.yPosition,
+            diamondImage.width,
+            diamondImage.height
+        );
+    }
+ 
+    // spawn new diamonds
+    if(gameState == "action" &&
+    diamondTimeSinceLastSpawn>diamondSpawnInterval) {
+        diamonds.push({
+            xPosition: spawnXPosition,
+            yPosition: randomBetween(0, canvas.height)
+        });
+        diamondTimeSinceLastSpawn = 0;
+    }
+ 
+    if(gameState == "action") {
+        diamondTimeSinceLastSpawn += timeSinceLastFrame;
+    }
+ 
+ 
+// diamond variables
+const diamondSound = coinSound;
+const diamondImage = new Image(60, 60);
+      diamondImage.src = "../assets/images/diamond.png";
+const diamondHitboxRadius = 30;
+const diamondXSpeed = -10;
+const diamondSpawnInterval = 1000;
+const diamondValue = -5;
+let diamondTimeSinceLastSpawn = diamondSpawnInterval
+let diamonds = [];
+ 
+ 
+// i input.js
+ diamonds = [];
+
+Programmering 8 (Prompt/Alert/Confirm)
+Mål: Lære at lave et simpelt input/output til at kunne interagere med et program.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Husk hvordan loops fungerer.
+
+2. Prompt, Confirm og Alert: https://www.w3schools.com/js/js_popup.asp
+
+3. Brug prompt/confirm/alert til at give brugeren beskeder og bede brugeren om input.
+(Når spillet er slut, fortæl brugeren hvad deres score er og bed dem om at indtaste deres brugernavn)
+
+4. Skriv om prompt confirm og alert i logbogen
+
+ 
+
+Ekstra Videoer:
+ https://www.youtube.com/watch?v=ZmRYan3lAIo
+
+function openGameOverDialog () {
+    alert ( "GAME OVER!" );
+    if ( confirm ( "INSERT HIGHSCORE?" )) {
+        highscores . push (
+            {
+                username : prompt ( "USERNAME:" ),
+                highscore : scoreValue
+            }
+        );
+    }
+    highscores . sort (( x , y ) => y . highscore - x . highscore );
+    alert ( JSON . stringify ( highscores ));
+}
+
+Programmering 9 (Rutediagrammer / Flowcharts)
+Mål: Lære at beskrive kode vha. rutediagrammer.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Husk at man kan bruge prompt, confirm og alert til interagere med brugeren.
+
+2. Hvad er flowcharts:
+Flowline: Peger til det næste skridt
+Terminal: Indikerer start/slut
+Process: typisk en variable der bliver lavet, får en ny værdi eller en funktion bliver brugt, etc.
+Decision: Typisk et if-statement eller en anden betingelse i et loop, der får programmet til at forgrene sig.
+Input/output: Typisk alert, prompt eller confirm eller andre former for input/output
+
+https://en.wikipedia.org/wiki/Flowchart#Building_blocks
+
+3. Beskriv det følgende stykke kode med et flowchart. Prøv først selv, løsningen er i bunden.
+Jeg kan anbefale denne app til at lave diagrammer: www.draw.io
+
+  for ( let i = 0 ; i < clouds . length ; i ++) {
+        // draw the cloud
+        drawImage (
+            cloudImage ,
+            clouds [ i ][ 0 ],
+            clouds [ i ][ 1 ],
+            cloudImage . width / 4 ,
+            cloudImage . height / 4
+        );
+        // update the x position of the cloud
+        clouds [ i ][ 0 ] += cloudXSpeed ;
+        // remove cloud if it moves beyond the destruction point
+        if ( clouds [ i ][ 0 ] < destructionXPosition ) {
+            clouds = removeIndexAndReturn ( clouds , i );
+            i --; // decrement i to avoid flicker
+        }
+    }
+4. Skriv om flowcharts og de forskellige symboler i logbogen.
+
+ 
+
+Ekstra videoer:
+
+ https://www.youtube.com/watch?v=7qclxWFkIAk
+
+Ekstra Videoer:
+
+ https://www.youtube.com/watch?v=SWRDqTx8d4k
+
+ 
+
+Løsning:
+
+
+
+Programmering 10 (Scrum and Planning)
+Mål: Lære at kende til scrum-processen og lave en sprint backlog og en plan.
+
+Dagsorden
+
+1. Opsamling fra sidst: Rutediagrammer / flowcharts kahoot
+
+2. Scrum:
+
+
+
+https://www.youtube.com/watch?v=9TycLR0TqFA
+
+ 
+
+Projektoplæg:
+Modificer flappy-bird spillet og lav din egen lille tilføjelse. F.eks. følg lærerens eksempel og tilføj nogle andre coin-typer, som har deres eget spawn-interval, point-værdi, hastighed, osv.
+https://github.com/siinch/flappybird-clone
+
+ 
+
+3. Lav en sprint backlog:
+Sæt et realistisk og konkret mål for det, som I gerne vil lave. Del det op i konkrete del-mål.
+    F.eks. Kunne et overordnet mål være at tilføje en sjælden dollor-seddel, som giver 100 point.
+    Delmål 1: Lav variablene der skal styre dollor-sedlen, så som x og y position, billede, hastighed, osv.
+    Delmål 2: Lav logikken der skal få dollor-sedlen til at bevæge sig.
+    Delmål 3: Lav logikken til at tegne dollor-sedlen.
+    Delmål 4: Lav logikken til at få fuglen og dollor-sedlen til at kollidere.
+    Delmål 5: Lav logikken til at fjerne dollor-sedlen og give spilleren point.
+    Delmål 6: Lav logikken til at få dollor-sedlen til at respawne.
+    Etc.
+
+4. Plan:
+Planlæg hvornår delmålene skal være nået. I har til midt-slut februar.
+
+Næste gang går vi igang med build-fasen
+
+Programmering 11 (Building)
+Mål: Komme videre i sprint-planen og få klaret et eller flere delmål.
+
+Dagsorden:
+
+1. Opsamling fra sidst: Scrum kahoot.
+
+2. Daily scrum: Alle står op og giver ultra-kort status rapport.
+
+3. Build: Udfør dagens delmål. Spørg læreren eller klassekammerater om hjælp, hvis du sidder fast.
+
+Programmering xx (Build) Arbejd-selv. Simon er på studietur
+Mål: Komme videre i sprint-planen og få klaret et eller flere delmål.
+
+Dagsorden:
+
+1. Daily scrum: Alle står op og giver ultra-kort status rapport.
+
+2. Build: Udfør dagens delmål. Spørg læreren eller klassekammerater om hjælp, hvis du sidder fast.
+
+Programming xx (Test)
+Mål: Integrer produktet i jeres logbog/portfolio og lav en hurtig test om det virker:
+
+Dagsorden:
+
+1. Daily scrum: Alle står op og giver ultra-kort status rapport.
+
+2. How to: Læreren viser hvordan I kan komme spillet ind i logbogen / portfoliet.
+
+3. Test: Afprøv hinandens features. Virker de?
+
+Programming xx (Review)
+Mål: Alle præsenterer kort deres arbejde.
+
+Dagsorden:
+
+1. Reviews: Alle grupper præsenterer deres arbejde og evaluerer processen. Hvad var jeres mål? Nåede I jeres mål? Hvordan var processen?  Gik noget galt? Hvad kan vi lære af det? etc.

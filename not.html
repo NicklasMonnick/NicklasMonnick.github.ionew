@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nicklas Monnicks Logbog</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css"></link>
+    </head>
+
+    <html>
+        <head>
+        <script>
+        function setCookie(cname,cvalue,exdays) {
+          const d = new Date();
+          d.setTime(d.getTime() + (exdays*24*60*60*1000));
+          let expires = "expires=" + d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        
+        function getCookie(cname) {
+          let name = cname + "=";
+          let decodedCookie = decodeURIComponent(document.cookie);
+          let ca = decodedCookie.split(';');
+          for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+            }
+          }
+          return "";
+        }
+        
+        function checkCookie() {
+          let user = getCookie("username");
+          if (user != "") {
+            alert("Welcome again " + user);
+          } else {
+             user = prompt("Please enter your name:","");
+             if (user != "" && user != null) {
+               setCookie("username", user, 30);
+             }
+          }
+        }
+        </script>
+        </head>
+        
+        <body onload="checkCookie()"></body>
+        
+        </html>
+
+    <!-- Banner HTML 
+    <div class="banner">
+        <h1>Min logbog</h1>
+    </div> -->
+    
+    </script>
+        <!-- Navigation bar HTML -->
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active">𝓛𝓸𝓰𝓫𝓸𝓰</a>
+            <a href="informatik.html">𝓘𝓝𝓕</a>
+            <a href="matematik.html">𝓜𝓐𝓣</a>
+            <a href="dansk.html">𝓓𝓐𝓝</a>
+            <a href="engelsk.html">𝓔𝓝𝓖</a>
+            <a href="Fys.html">𝓕𝓨𝓢</a>
+            <a href="so.html">𝓢𝓞</a>/
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+              <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <div class="content">
+            <div class="element left">
+            <img id="profile-picture" src="images/Profilepicturetest.png">
+            </div>
+            <div class="element right">
+            <h2>Om mig</h2>
+            <p>
+                Hello, jeg hedder Nicklas Monnick og jeg er elev på HTX på Slotshavens Gymnasium. Har ikke umeldbart et yndlingsfag. I min fritid er jeg
+                sammen med venner, spiller computer eller laver skolearbejde. Når jeg er færdig med Gymnasiet vil jeg gerne på en videregående uddannelse.
+                Jeg er dog ikke helt sikker på hvad jeg vil når jeg er færdig med den videregående uddannelse.
+            </p>
+            </div>
+        </div>
+        <h2><a href="#">Mass Surveillance</a></h2>
+        <p>
+          Mål: Forstå at masseovervågning er muligt i en gennem-digitaliseret verden og kunne reflektere de følgende etiske dilemmaer.
+        </p>
+
+        <script src="script.js"></script>
+    </body>
+</html>
